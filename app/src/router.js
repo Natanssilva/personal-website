@@ -4,9 +4,12 @@ import AboutMe from './views/AboutMe.vue';
 import Contact from './views/Contact.vue';
 import Habilities from './views/Habilities.vue';
 import Projects from './views/Projects.vue';
+import UnderConstruction from './views/UnderConstruction.vue'
 
 const routes = [
-  { path: '/', redirect: '/home' },  // Redireciona '/' para '/home'
+  { path: '/', redirect: '/construction' },  
+  { path: '/construction', component: UnderConstruction },  // Nova rota para a página em andamento
+  // { path: '/', redirect: '/home' },  // Redireciona '/' para '/home'
   { path: '/home', component: Home },
   { path: '/about', component: AboutMe },
   { path: '/contact', component: Contact },

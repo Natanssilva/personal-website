@@ -7,9 +7,10 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/',
   plugins: [
     vue(),
-    // vueDevTools(), //ferramenta de debug do vue
+    vueDevTools(), //ferramenta de debug do vue
     tailwindcss(),
   ],
   resolve: {

@@ -1,15 +1,13 @@
 <script setup>
-import Navbar from "./components/Navbar.vue";
-import TabsComponent from "./components/TabsComponent.vue";  // Importando as abas
 </script>
 
 <template>
-  <Navbar />
   <main>
-    <TabsComponent />  
-
-
+    <router-view />
+    <router-link ></router-link>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
