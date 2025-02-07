@@ -1,0 +1,29 @@
+name: Deploy para Hostinger
+
+on:
+  push:
+    branches:
+      - main  # Altere para a branch que deseja usar no deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Build do projeto
+        run: npm run build
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ftp://46.202.145.242 #ftp da hostinger
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: dist/  # Pasta gerada pelo build
+          server-dir: /public_html/  # Caminho no servidor Hostinger

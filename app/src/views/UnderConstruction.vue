@@ -2,9 +2,9 @@
   <div class="construction-container">
     <div class="message-container">
       <h1>Site em andamento!!</h1>
-      <p>Estou trabalhando para trazer algo incrível para você. Volte em breve!</p>
+      <p>Estou trabalhando para apresentar algo incrível. Volte em breve!</p>
       <p>
-        Fique de olho nas atualizações postadas no meu
+        Fique de olho em atualizações no meu
         <a class="bg-red-50" href="https://github.com/Natanssilva" target="_blank" rel="github">Github</a>
       </p>
     </div>
