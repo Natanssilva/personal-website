@@ -1,5 +1,9 @@
 <template>
-  <h1 class="underline">TESTE</h1>
+  <h1 class="underline">TESTE Navbar</h1>
+
 </template>
 
-<script setup></script>
+<script setup>
+
+
+</script>
