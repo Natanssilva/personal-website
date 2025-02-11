@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.my-app-dark, 
+.my-app-dark footer, 
+.my-app-dark div {
+    background-color: #1E1E1E;
+}
