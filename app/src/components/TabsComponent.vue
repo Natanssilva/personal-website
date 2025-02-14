@@ -1,8 +1,5 @@
 <template>
   <div class="page-container">
-    <main>
-      <router-view></router-view>
-    </main>
     <footer >
       <Tabs :value="routePath" >
         <TabList>
@@ -51,7 +48,7 @@ const routePath = computed(() => {
 .page-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 main {
@@ -77,7 +74,7 @@ footer {
 }
 
 .custom-tab-link:hover {
-  color: #007bff;
+  /* color: #007bff; */
 }
 
 .custom-tab-link .pi {

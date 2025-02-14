@@ -3,6 +3,7 @@
     class="fixed top-4 left-0 w-full text-white py-4 px-6 flex items-center justify-around shadow-lg"
   >
     <span class="text-xl font-bold">@natanssilva</span>
+
     <!-- Switch -->
     <ToggleSwitch v-model="checked" @click="toggleDarkMode()">
       <template #handle="{ checked }">
