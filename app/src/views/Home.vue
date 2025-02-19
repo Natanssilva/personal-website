@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center items-center h-screen">
+  <div class="flex flex-col justify-center items-center h-[100vh]">
     <h1 class="main-title mb-4">{{ '<Natan Silva />' }}</h1>
 
     <p class="main-text text-gray-500">
@@ -13,17 +13,22 @@
         <Button label="Currículo" icon="pi pi-download" size="large" class="p-button-outlined" />
       </a>
     </div>
+
+    <div class="icons-home">
+      <SocialMedias />
+    </div>
   </div>
 </template>
 
 <script setup>
+import SocialMedias from '@/components/SocialMedias.vue'
 import { Button } from 'primevue'
 import { ref, onMounted } from 'vue'
 
 const typedText = ref('')
 const cursorClass = ref('blink')
 
-const words = ['Desenvolvedor Web', 'apaixonado por tecnologia', 'um eterno aprendiz...']
+const words = ['Desenvolvedor Web', 'Desenvolvedor FullStack', 'apaixonado por tecnologia', 'um eterno aprendiz...']
 let charIndex = 0
 let wordIndex = 0
 
@@ -59,6 +64,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.icons-home{
+  margin-top: 50px;
+}
 .main-title {
   font-size: 2.8rem; /* Tamanho inicial */
 }
