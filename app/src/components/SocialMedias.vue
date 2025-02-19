@@ -1,12 +1,12 @@
 <template>
     <div class="flex justify-center items-center main">
-      <a href="https://www.linkedin.com/in/natanssilva/" target="_blank" rel="linkedin"
+      <a href="https://www.linkedin.com/in/natanssilva/" target="_blank" rel="noopener noreferrer"
         ><font-awesome-icon :icon="['fab', 'linkedin']" class="icon" size="2x" />
       </a>
-      <a href="http://" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/Natanssilva" target="_blank" rel="noopener noreferrer">
         <font-awesome-icon :icon="['fab', 'square-github']" class="icon" size="2x" />
       </a>
-      <a href="http://" target="_blank" rel="noopener noreferrer">
+      <a href="mailto:natanportoms@outlook.com" target="_blank" rel="noopener noreferrer">
         <font-awesome-icon :icon="['fas', 'envelope']" class="icon" size="2x" />
       </a>
     </div>
