@@ -34,6 +34,10 @@
   </nav>
 </template>
 <style>
+
+img{
+  margin-right: 5px;
+}
 .div-right {
   gap: 15px;
 }

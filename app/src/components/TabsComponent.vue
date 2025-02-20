@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
-    <footer >
-      <Tabs :value="routePath" >
+    <footer>
+      <Tabs :value="routePath">
         <TabList>
           <Tab v-for="tab in items" :key="tab.label" :value="tab.route">
             <router-link v-if="tab.route" v-slot="{ href, navigate }" :to="tab.route" custom>
@@ -45,10 +45,10 @@ const routePath = computed(() => {
 </script>
 
 <style scoped>
+
 .page-container {
   display: flex;
   flex-direction: column;
-  /* min-height: 100vh; */
 }
 
 main {
@@ -80,14 +80,23 @@ footer {
 .custom-tab-link .pi {
   vertical-align: middle;
   margin-right: 0.5rem;
+
+  font-size: 1.2rem; /* Aumenta o tamanho do ícone */
+  width: 24px; /* Ajusta a largura */
+  height: 24px; /* Ajusta a altura */
 }
 
 /* Esconde o texto e mantém os ícones apenas em telas pequenas */
 .tab-label {
   display: inline;
+  font-size: 15px;
 }
 
 @media (max-width: 768px) {
+  i {
+    width: 5vw;
+  }
+
   footer {
     padding: 0 10px;
   }
@@ -98,6 +107,12 @@ footer {
 
   .custom-tab-link {
     font-size: 20px; /* Aumenta o tamanho do ícone para dispositivos móveis */
+  }
+}
+
+@media (min-width: 1024px) {
+  i {
+    width: 50px;
   }
 }
 </style>
