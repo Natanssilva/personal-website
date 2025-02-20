@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center h-[100vh]">
-    <h1 class="main-title mb-4">{{ '<Natan Silva />' }}</h1>
+    <h1 class="main-title mb-4">{{ '<Natan Silva/>' }}</h1>
 
     <p class="main-text text-gray-500">
       Olá, eu sou
@@ -8,9 +8,9 @@
       <span class="cursor" :class="cursorClass">&nbsp;</span>
     </p>
 
-    <div class="mt-6">
+    <div class="bttn-curriculo">
       <a href="#" download>
-        <Button label="Currículo" icon="pi pi-download" size="large" class="p-button-outlined" />
+        <Button label="Currículo" icon="pi pi-download" size="large" class="p-button-outlined" rounded />
       </a>
     </div>
 
@@ -28,7 +28,7 @@ import { ref, onMounted } from 'vue'
 const typedText = ref('')
 const cursorClass = ref('blink')
 
-const words = ['Desenvolvedor Web', 'Desenvolvedor FullStack', 'apaixonado por tecnologia', 'um eterno aprendiz...']
+const words = ['Desenvolvedor Web', 'Desenvolvedor Full-Stack', 'apaixonado por tecnologia', 'um eterno aprendiz...']
 let charIndex = 0
 let wordIndex = 0
 
@@ -64,17 +64,24 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.icons-home{
-  margin-top: 50px;
-}
 .main-title {
-  font-size: 2.8rem; /* Tamanho inicial */
+  font-size: 2.8rem;
+  margin-bottom: 10px; /* Reduzindo a margem inferior para aproximar do texto dinâmico */
 }
 
 .main-text {
-  font-size: 1.8rem; /* Tamanho inicial */
+  font-size: 1.8rem;
+  margin-top: 0; /* Remove qualquer margem superior para aproximar do título */
 }
 
+/* Se necessário, ajuste a margem inferior da .icons-home também */
+.icons-home {
+  margin-top: 50px;
+}
+
+.bttn-curriculo{
+  margin-top: 35px;
+}
 /* Media Query para ajustar o tamanho do título */
 @media (max-width: 640px) {
   .main-title {
