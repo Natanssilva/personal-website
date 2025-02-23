@@ -6,7 +6,6 @@
       <span class="text-xl font-bold">@natanssilva</span>
     </div>
 
-    <!-- Switch -->
     <div class="flex items-center div-right">
       <ToggleSwitch v-model="checked" @click="toggleDarkMode()">
         <template #handle="{ checked }">
@@ -20,10 +19,11 @@
           :options="countries"
           optionLabel="name"
           class="select-component"
+          @change="onSelectChange"
         >
           <template #option="slotProps">
             <div class="flex items-center gap-4">
-              <img :src="slotProps.option.flag" alt="flag" class="w-6 h-4"/>
+              <img :src="slotProps.option.flag" alt="flag" class="w-6 h-4" />
               <span>{{ slotProps.option.name }}</span>
             </div>
           </template>
@@ -34,8 +34,7 @@
   </nav>
 </template>
 <style>
-
-img{
+img {
   margin-right: 5px;
 }
 .div-right {
@@ -65,18 +64,32 @@ import ToggleSwitch from 'primevue/toggleswitch'
 import Select from 'primevue/select'
 import FloatLabel from 'primevue/floatlabel'
 import brazilFlag from '../assets/img/brazil-.png'
-import spainFlag from '../assets/img/flag.png'
 import usaFlag from '../assets/img/united-states.png'
+import { useI18n } from 'vue-i18n'
 
-const toggleDarkMode = () => document.documentElement.classList.toggle('my-app-dark')
 // Estado do Toggle
+const toggleDarkMode = () => document.documentElement.classList.toggle('my-app-dark')
+
 const checked = ref(false)
+const { locale } = useI18n() // Obter a função para alterar o locale
 
 const selectedCountry = ref()
 
+const onSelectChange = (event) => {
+  switch (selectedCountry.value.code) {
+    case 'BR':
+      locale.value = 'pt'
+      break
+    case 'US':
+      locale.value = 'en'
+      break
+    default:
+      locale.value = 'en'
+  }
+}
+
 const countries = ref([
   { name: 'PT-BR', code: 'BR', flag: brazilFlag },
-  { name: 'ES', code: 'ES', flag: spainFlag },
-  { name: 'EN', code: 'US', flag: usaFlag },
+  { name: 'US', code: 'US', flag: usaFlag },
 ])
 </script>
