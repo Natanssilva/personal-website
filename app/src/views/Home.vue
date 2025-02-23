@@ -1,16 +1,22 @@
 <template>
   <div class="flex flex-col justify-center items-center h-[100vh]">
-    <h1 class="main-title mb-4">{{ '<Natan Silva/>' }}</h1>
+    <h1 class="main-title mb-4">{{ '<Natan Silva />' }}</h1>
 
     <p class="main-text text-gray-500">
-      Olá, eu sou
+      {{ t('message.hello') }}
       <span class="typed-text text-teal-500">{{ typedText }}</span>
       <span class="cursor" :class="cursorClass">&nbsp;</span>
     </p>
 
     <div class="bttn-curriculo">
       <a href="#" download>
-        <Button label="Currículo" icon="pi pi-download" size="large" class="p-button-outlined" rounded />
+        <Button
+          :label=LabelButton
+          icon="pi pi-download"
+          size="large"
+          class="p-button-outlined"
+          rounded
+        />
       </a>
     </div>
 
@@ -23,35 +29,46 @@
 <script setup>
 import SocialMedias from '@/components/SocialMedias.vue'
 import { Button } from 'primevue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t, locale } = useI18n() // Função para acessar as traduções
 
 const typedText = ref('')
 const cursorClass = ref('blink')
+const LabelButton = computed(() =>  t('message.cv'))
 
-const words = ['Desenvolvedor Web', 'Desenvolvedor Full-Stack', 'apaixonado por tecnologia', 'um eterno aprendiz...']
+const words = ref({
+  pt: ['Desenvolvedor Web', 'Desenvolvedor Full-Stack', 'apaixonado por tecnologia', 'um eterno aprendiz...'],
+  es: ['Desarrollador Web', 'Desarrollador Full-Stack', 'apasionado por la tecnología', 'un aprendiz eterno...'],
+  en: ['Web Developer', 'Full-Stack Developer', 'passionate about technology', 'an eternal learner...']
+})
+
+// Variáveis de controle para o efeito de digitação
 let charIndex = 0
 let wordIndex = 0
+let typingTimeout = null // Armazena o timeout para digitação
 
 const type = () => {
-  if (charIndex <= words[wordIndex].length - 1) {
-    typedText.value += words[wordIndex].charAt(charIndex)
+  if (charIndex <= words.value[locale.value][wordIndex].length - 1) {
+    typedText.value += words.value[locale.value][wordIndex].charAt(charIndex)
     charIndex++
-    setTimeout(type, 120)
+    typingTimeout = setTimeout(type, 160)
   } else {
     cursorClass.value = ''
-    setTimeout(erase, 800)
+    setTimeout(erase, 600)
   }
 }
 
 const erase = () => {
   if (charIndex > 0) {
-    typedText.value = words[wordIndex].slice(0, charIndex - 1)
+    typedText.value = words.value[locale.value][wordIndex].slice(0, charIndex - 1)
     charIndex--
-    setTimeout(erase, 80)
+    typingTimeout = setTimeout(erase, 180)
   } else {
     cursorClass.value = 'blink'
     wordIndex++
-    if (wordIndex > words.length - 1) {
+    if (wordIndex > words.value[locale.value].length - 1) {
       wordIndex = 0
     }
     setTimeout(type, 800)
@@ -61,57 +78,68 @@ const erase = () => {
 onMounted(() => {
   setTimeout(type, 1000)
 })
+
+// Observa mudanças no locale para atualizar as palavras e garantir que a animação seja reiniciada corretamente
+watch(() => locale.value, (newLocale) => {
+  // Limpar timeout da animação anterior
+  if (typingTimeout) {
+    clearTimeout(typingTimeout)
+  }
+
+  // Resetar a digitação e recomeçar a animação
+  wordIndex = 0 // Resetar o índice da palavra
+  typedText.value = '' // Limpar o texto digitado
+  charIndex = 0 // Resetar o índice do caractere
+  setTimeout(type, 1000) // Reiniciar a digitação com um pequeno atraso
+})
 </script>
 
 <style scoped>
 .main-title {
   font-size: 2.8rem;
-  margin-bottom: 10px; /* Reduzindo a margem inferior para aproximar do texto dinâmico */
+  margin-bottom: 10px;
 }
 
 .main-text {
   font-size: 1.8rem;
-  margin-top: 0; /* Remove qualquer margem superior para aproximar do título */
+  margin-top: 0;
 }
 
-/* Se necessário, ajuste a margem inferior da .icons-home também */
 .icons-home {
   margin-top: 50px;
 }
 
-.bttn-curriculo{
+.bttn-curriculo {
   margin-top: 35px;
 }
-/* Media Query para ajustar o tamanho do título */
+
 @media (max-width: 640px) {
   .main-title {
-    font-size: 2rem;  /* Menor tamanho para dispositivos móveis */
+    font-size: 2rem;
   }
 
   .main-text {
-    font-size: 1rem;  /* Menor tamanho para dispositivos móveis */
+    font-size: 1rem;
   }
 }
 
-/* Media Query para telas de tamanho médio (tablet) */
 @media (min-width: 641px) and (max-width: 1024px) {
   .main-title {
-    font-size: 2.4rem; /* Ajustado para tablets */
+    font-size: 2.4rem;
   }
 
   .main-text {
-    font-size: 1.6rem; /* Ajustado para tablets */
+    font-size: 1.6rem;
   }
 }
 
-/* Media Query para telas grandes (desktop) */
 @media (min-width: 1025px) {
   .main-title {
-    font-size: 3.2rem; /* Maior tamanho para desktops */
+    font-size: 3.2rem;
   }
 
   .main-text {
-    font-size: 2rem; /* Maior tamanho para desktops */
+    font-size: 2rem;
   }
 }
 

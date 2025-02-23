@@ -28,13 +28,16 @@ import Tabs from 'primevue/tabs'
 import TabList from 'primevue/tablist'
 import Tab from 'primevue/tab'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
-const items = ref([
-  { route: '/home', label: 'Home', icon: 'pi pi-home' },
-  { route: '/about', label: 'Sobre', icon: 'pi pi-user' },
-  { route: '/experience', label: 'Experiência', icon: 'pi pi-briefcase' },
-  { route: '/project', label: 'Projetos', icon: 'pi pi-code' },
-  { route: '/contact', label: 'Contato', icon: 'pi pi-envelope' },
+const { t } = useI18n() // Função para acessar as traduções
+
+const items = computed(() => [
+  { route: '/home', label: t('message.menu.home'), icon: 'pi pi-home' },
+  { route: '/about', label: t('message.menu.about'), icon: 'pi pi-user' },
+  { route: '/experience', label: t('message.menu.xp'), icon: 'pi pi-briefcase' },
+  { route: '/project', label: t('message.menu.projects'), icon: 'pi pi-code' },
+  { route: '/contact', label: t('message.menu.contact'), icon: 'pi pi-envelope' },
 ])
 
 const route = useRoute()
