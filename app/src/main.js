@@ -81,7 +81,7 @@ const i18n = createI18n({
         views: {
           about: {
             title: 'About me',
-            text:  {
+            text: {
               init: `I am a Full-Stack developer focused on building and maintaining scalable,
           high-performance, and intuitive web applications. I've always been fascinated by
           technology and the ability to solve real-world problems through code. Since the beginning
@@ -92,11 +92,9 @@ const i18n = createI18n({
           some time, I switched to a Systems for the Internet course, which I am now finishing, and
           it provided me with a solid foundation for entering the tech job market. In 2023, I began
           my professional career in IT as an intern in IT Support and Infrastructure.`,
-              end: `Over time, I
-          advanced to the role of Junior Web Developer. During this process, I focused particularly
-          on back-end development, working with scalable applications, testing, and coding best
-          practices.`
-            }
+              end: `Over time, I evolved into a Junior Web Developer. During this process, 
+              I focused especially on the back-end with PHP and Javascript on the front-end, working with scalable applications, testing, and good coding practices.`,
+            },
           },
         },
       },
@@ -125,10 +123,10 @@ const i18n = createI18n({
           migrar para o curso de Sistemas para Internet, no qual estou agora na reta final, e que me
           proporcionou uma introdução sólida ao mercado de trabalho de tecnologia. Em 2023, comecei
           minha trajetória profissional na área de TI como estagiário de Suporte e Infraestrutura.`,
-            end: `Ao longo do tempo, evoluí para a posição de Desenvolvedor Web Júnior. Durante esse
-          processo, foquei especialmente em back-end, trabalhando com aplicações escaláveis, testes
-          e boas práticas de codificação.`
-            }
+              end: `Ao longo do tempo, evoluí para a posição de Desenvolvedor Web Júnior. Durante esse
+          processo, foquei especialmente em back-end com PHP e Javascript no front-end, trabalhando com aplicações escaláveis, testes
+          e boas práticas de codificação.`,
+            },
           },
         },
       },
