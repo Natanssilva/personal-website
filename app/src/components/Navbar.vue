@@ -3,7 +3,7 @@
     class="fixed top-4 left-0 w-full text-white py-4 px-6 flex items-center justify-around shadow-lg"
   >
     <div>
-      <span class="text-xl font-bold">@natanssilva</span>
+      <span class="text-xl font-bold">Natan Silva.</span>
     </div>
 
     <div class="flex items-center div-right">
