@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center h-[100vh]">
-    <h1 class="main-title mb-4">{{ '<Natan Silva />' }}</h1>
+    <h1 class="main-title mb-4">{{ '<NatanSilva/>' }}</h1>
 
     <p class="main-text text-gray-500">
       {{ t('message.hello') }}
@@ -40,7 +40,6 @@ const LabelButton = computed(() =>  t('message.cv'))
 
 const words = ref({
   pt: ['Desenvolvedor Web', 'Desenvolvedor Full-Stack', 'apaixonado por tecnologia', 'um eterno aprendiz...'],
-  es: ['Desarrollador Web', 'Desarrollador Full-Stack', 'apasionado por la tecnología', 'un aprendiz eterno...'],
   en: ['Web Developer', 'Full-Stack Developer', 'passionate about technology', 'an eternal learner...']
 })
 
