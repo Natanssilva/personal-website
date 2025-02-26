@@ -3,7 +3,7 @@
     <h1>{{ t('message.views.about.title') }}</h1>
     <div class="container">
       <div class="profile-section">
-        <img src="../assets/img/perfil-pic.jpg" alt="Foto de perfil" class="profile-pic" />
+        <img v-if="!isMobile" :src="perfilPic" alt="Foto de perfil" class="profile-pic" />
         <pre
           class="font-mono text-base text-light-primary dark:text-dark-secondary min-w-[17rem] min-h-[12rem] text-left"
         >
@@ -18,7 +18,11 @@
         </pre>
       </div>
       <div>
-        <ScrollPanel v-if="isMobile" style="width: 100%; height: 200px">
+        <ScrollPanel v-if="isMobile" style="width: 100%; height: 200px" :dt="{
+        bar: {
+            background: '{primary.color}'
+        }
+    }">
           <span class="about-text">{{ t('message.views.about.text.init') }}</span>
           <span class="about-text">{{ t('message.views.about.text.mid') }}</span>
           <span class="about-text">{{ t('message.views.about.text.end') }}</span>
@@ -37,6 +41,7 @@
 import { useI18n } from 'vue-i18n'
 import ScrollPanel from 'primevue/scrollpanel'
 import { onMounted, onBeforeUnmount, ref } from 'vue'
+import perfilPic from '@/assets/img/perfil-pic.jpg'
 
 const { t } = useI18n()
 const isMobile = ref(window.innerWidth <= 1024)
@@ -74,10 +79,10 @@ h1 {
   object-fit: cover;
 }
 
-code{
-  font-size: 1.0rem;
+code {
+  font-size: 1rem;
   line-height: 1.5;
-  font-family: "Source Code Pro", serif;
+  font-family: 'Source Code Pro', serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -100,19 +105,28 @@ code{
 }
 @media (max-width: 1024px) {
   .container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
   }
 
+  .profile-section {
+    height: 30vh;
+  }
+
   .profile-pic {
-    width: 220px;
-    height: 220px;
+    width: 125px;
+    height: 125px;
   }
 
   .about-text {
-    max-width: 90vw;
+    max-width: 85vw;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8rem;
+    line-height: 1.4;
     text-align: center;
   }
 }
