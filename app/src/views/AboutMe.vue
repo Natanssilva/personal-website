@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col w-full justify-center items-center min-h-screen">
-    <h1>{{ t('message.views.about.title') }}</h1>
+        <h1>{{ `<!--  ${t('message.views.about.title')} -- >` }}</h1>
     <div class="container">
       <div class="profile-section">
-        <img v-if="!isMobile" :src="perfilPic" alt="Foto de perfil" class="profile-pic" />
-        <pre
+        <img :src="perfilPic" alt="Foto de perfil" class="profile-pic" />
+        <pre  v-if="!isMobile"
           class="font-mono text-base text-light-primary dark:text-dark-secondary min-w-[17rem] min-h-[12rem] text-left"
         >
           <code>
@@ -18,7 +18,7 @@
         </pre>
       </div>
       <div>
-        <ScrollPanel v-if="isMobile" style="width: 100%; height: 200px" :dt="{
+        <ScrollPanel v-if="isMobile" class="panel"  :dt="{
         bar: {
             background: '{primary.color}'
         }
@@ -103,6 +103,12 @@ code {
   justify-content: center;
   gap: 10px;
 }
+
+.panel{
+    width: 100%; 
+    height: 200px
+}
+
 @media (max-width: 1024px) {
   .container {
     display: flex;
@@ -113,13 +119,17 @@ code {
   }
 
   .profile-section {
-    height: 30vh;
+    height: 25vh;
   }
 
   .profile-pic {
-    width: 125px;
-    height: 125px;
+    width: 160px;
+    height: 160px;
   }
+
+  .panel{
+    height: 40vh
+}
 
   .about-text {
     max-width: 85vw;
