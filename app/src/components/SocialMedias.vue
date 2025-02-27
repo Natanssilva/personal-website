@@ -25,12 +25,12 @@
   }
   .icon {
     transition: all 0.3s;
-    padding: 10px;
+    padding: 3px;
   }
   
   .icon:hover {
     cursor: pointer;
-    animation: fa-beat 1s infinite;
+    animation: fa-beat 1s ;
   }
   </style>
   

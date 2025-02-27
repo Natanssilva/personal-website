@@ -7,6 +7,9 @@
       <span class="typed-text text-teal-500">{{ typedText }}</span>
       <span class="cursor" :class="cursorClass">&nbsp;</span>
     </p>
+    <p class="second-text text-gray-500">
+      Transformando ideias em código, e código em inovação.
+    </p>
 
     <div class="bttn-curriculo">
       <a href="#" download>
@@ -104,8 +107,13 @@ watch(() => locale.value, (newLocale) => {
   margin-top: 0;
 }
 
+.second-text {
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
 .icons-home {
-  margin-top: 50px;
+  margin-top: 13px;
 }
 
 .bttn-curriculo {
@@ -113,6 +121,10 @@ watch(() => locale.value, (newLocale) => {
 }
 
 @media (max-width: 640px) {
+  .second-text {
+  font-size: 0.65rem;
+}
+  
   .main-title {
     font-size: 2rem;
   }

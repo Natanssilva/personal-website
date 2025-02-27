@@ -82,18 +82,14 @@ const i18n = createI18n({
           about: {
             title: 'About me',
             text: {
-              init: `I am a Full-Stack developer focused on building and maintaining scalable,
-          high-performance, and intuitive web applications. I've always been fascinated by
-          technology and the ability to solve real-world problems through code. Since the beginning
-          of my studies, I've actively sought out challenges and continually deepened my knowledge
-          in developing innovative solutions.`,
-              mid: `My journey began in 2022 when I started my degree in
-          Computer Science and had my first exposure to algorithms and software development. After
-          some time, I switched to a Systems for the Internet course, which I am now finishing, and
-          it provided me with a solid foundation for entering the tech job market. In 2023, I began
-          my professional career in IT as an intern in IT Support and Infrastructure.`,
-              end: `Over time, I evolved into a Junior Web Developer. During this process, 
-              I focused especially on the back-end with PHP and Javascript on the front-end, working with scalable applications, testing, and good coding practices.`,
+              init: `I am a Full-Stack Developer passionate about technology and transforming ideas into innovative solutions.
+                    My focus is on creating and maintaining scalable, high-performance and intuitive web applications, always seeking the best experience for users.`,
+              mid: `My journey into technology began in 2022, when I started my undergraduate degree in Computer Science and had my first contact with algorithms and software development.
+                    Over time, I realized that my calling was in web development and I moved to the Internet Systems course, where I am now in the final stretch.
+                    This transition gave me a solid foundation to work in the technology market.`,
+              end: `In 2023, I began my professional career in the IT area as a Support and Infrastructure intern.
+                    Since then, I have progressed to the position of Junior Web Developer, focusing on back-end with PHP and front-end with JavaScript.
+                    In my day-to-day work,  I work on developing scalable applications, following good coding practices, applying tests and always seeking to improve my expertise to deliver high-quality products.`,
             },
           },
         },
@@ -114,18 +110,14 @@ const i18n = createI18n({
           about: {
             title: 'Sobre mim',
             text: {
-              init: `Sou um desenvolvedor Full-Stack focado em criar e manter aplicações web escaláveis,
-          performáticas e intuitivas. Sempre fui fascinado por tecnologia e pela capacidade de
-          resolver problemas reais por meio de código. Desde o início dos meus estudos, busquei
-          desafios e me aprofundei constantemente no desenvolvimento de soluções inovadoras.`,
-              mid: `  Minha jornada começou em 2022, quando iniciei a graduação em Ciência da Computação e tive meu
-          primeiro contato com algoritmos e desenvolvimento de software. Após algum tempo, decidi
-          migrar para o curso de Sistemas para Internet, no qual estou agora na reta final, e que me
-          proporcionou uma introdução sólida ao mercado de trabalho de tecnologia. Em 2023, comecei
-          minha trajetória profissional na área de TI como estagiário de Suporte e Infraestrutura.`,
-              end: `Ao longo do tempo, evoluí para a posição de Desenvolvedor Web Júnior. Durante esse
-          processo, foquei especialmente em back-end com PHP e Javascript no front-end, trabalhando com aplicações escaláveis, testes
-          e boas práticas de codificação.`,
+              init: `Sou um Desenvolvedor Full-Stack apaixonado por tecnologia e por transformar ideias em soluções inovadoras. 
+                      Meu foco está na criação e manutenção de aplicações web escaláveis, performáticas e intuitivas, sempre buscando a melhor experiência para os usuários.`,
+              mid: ` Minha jornada na tecnologia começou em 2022, quando iniciei a graduação em Ciência da Computação e tive meu primeiro contato com algoritmos e desenvolvimento de software. 
+                    Com o tempo, percebi que minha vocação estava no desenvolvimento web e migrei para o curso de Sistemas para Internet, onde hoje estou na reta final. 
+                    Essa transição me proporcionou uma base sólida para atuar no mercado de tecnologia.`,
+              end: `Em 2023, dei início à minha trajetória profissional na área de TI como estagiário de Suporte e Infraestrutura. 
+                    Desde então, evoluí para a posição de Desenvolvedor Web Júnior, com foco em back-end com PHP e front-end com JavaScript. 
+                    No meu dia a dia, trabalho no desenvolvimento de aplicações escaláveis, seguindo boas práticas de código, aplicando testes e sempre buscando aprimorar minha expertise para entregar produtos de alta qualidade.`,
             },
           },
         },

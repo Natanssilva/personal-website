@@ -12,30 +12,38 @@
           <i :class="['!text-xs pi', { 'pi-moon': checked, 'pi-sun': !checked }]" />
         </template>
       </ToggleSwitch>
-      <FloatLabel variant="on">
-        <Select
-          v-model="selectedCountry"
-          inputId="idioma"
-          :options="countries"
-          optionLabel="name"
-          class="select-component"
-          @change="onSelectChange"
-        >
-          <template #option="slotProps">
-            <div class="flex items-center gap-4">
-              <img :src="slotProps.option.flag" alt="flag" class="w-6 h-4" />
-              <span>{{ slotProps.option.name }}</span>
-            </div>
-          </template>
-        </Select>
-        <label for="Idioma">Idioma</label>
-      </FloatLabel>
+
+      <Button
+        type="button"
+        icon="pi-globe pi pi-ellipsis-v"
+        @click="toggle"
+        aria-haspopup="true"
+        aria-controls="overlay_menu"
+        rounded
+      />
+      
+      <!-- Menu com bandeiras -->
+      <Menu ref="menu" id="overlay_menu" :model="items" :popup="true">
+        <template #item="{ item }">
+          <div class="flex items-center gap-2 px-2 py-1 cursor-pointer" @click="item.command">
+            <img :src="item.flag" alt="Flag" class="w-5 h-4" />
+            <span>{{ item.label }}</span>
+          </div>
+        </template>
+      </Menu>
     </div>
   </nav>
 </template>
+
 <style>
+/* Ajusta a largura do menu ao tamanho do conteúdo */
+#overlay_menu {
+  min-width: auto ;
+  width: fit-content ;
+}
+
 img {
-  margin-right: 5px;
+  margin: 10px;
 }
 .div-right {
   gap: 15px;
@@ -51,9 +59,8 @@ nav {
 @media (max-width: 770px) {
   nav {
     justify-content: space-between !important;
-    /* margin: 25px; */
-    padding-left: 16px; /* Afastamento à esquerda */
-    padding-right: 16px; /* Afastamento à direita */
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 </style>
@@ -61,11 +68,11 @@ nav {
 <script setup>
 import { ref } from 'vue'
 import ToggleSwitch from 'primevue/toggleswitch'
-import Select from 'primevue/select'
-import FloatLabel from 'primevue/floatlabel'
 import brazilFlag from '../assets/img/brazil-.png'
 import usaFlag from '../assets/img/united-states.png'
 import { useI18n } from 'vue-i18n'
+import Menu from 'primevue/menu';
+import Button from 'primevue/button';
 
 // Estado do Toggle
 const toggleDarkMode = () => document.documentElement.classList.toggle('my-app-dark')
@@ -73,23 +80,34 @@ const toggleDarkMode = () => document.documentElement.classList.toggle('my-app-d
 const checked = ref(false)
 const { locale } = useI18n() // Obter a função para alterar o locale
 
-const selectedCountry = ref()
-
-const onSelectChange = (event) => {
-  switch (selectedCountry.value.code) {
-    case 'BR':
-      locale.value = 'pt'
-      break
-    case 'US':
-      locale.value = 'en'
-      break
-    default:
-      locale.value = 'en'
-  }
+// Função para alterar o idioma ao clicar no menu
+const onMenuSelect = (lang) => {
+  locale.value = lang
 }
 
-const countries = ref([
-  { name: 'PT-BR', code: 'BR', flag: brazilFlag },
-  { name: 'US', code: 'US', flag: usaFlag },
+// Itens do Menu com bandeiras
+const items = ref([
+  {
+    label: 'Idioma',
+    items: [
+      {
+        label: 'PT',
+        command: () => onMenuSelect('pt'),
+        flag: brazilFlag
+      },
+      {
+        label: 'EN',
+        command: () => onMenuSelect('en'),
+        flag: usaFlag
+      }
+    ]
+  }
 ])
+
+const menu = ref();
+
+const toggle = (event) => {
+    menu.value.toggle(event);
+};
+
 </script>

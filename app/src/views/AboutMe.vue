@@ -26,6 +26,9 @@
           <span class="about-text">{{ t('message.views.about.text.init') }}</span>
           <span class="about-text">{{ t('message.views.about.text.mid') }}</span>
           <span class="about-text">{{ t('message.views.about.text.end') }}</span>
+
+          <ScrollTop target="parent" :threshold="100" icon="pi pi-arrow-up" :buttonProps="{ severity: 'contrast', raised: true, rounded: true }" />
+
         </ScrollPanel>
         <div v-else>
           <span class="about-text">{{ t('message.views.about.text.init') }}</span>
@@ -41,6 +44,7 @@
 import { useI18n } from 'vue-i18n'
 import ScrollPanel from 'primevue/scrollpanel'
 import { onMounted, onBeforeUnmount, ref } from 'vue'
+import ScrollTop from 'primevue/scrolltop';
 import perfilPic from '@/assets/img/perfil-pic.jpg'
 
 const { t } = useI18n()
@@ -109,6 +113,28 @@ code {
     height: 200px
 }
 
+@media (max-width: 1400px) {
+  code {
+    font-size: 0.8rem;
+  }
+
+  .profile-section {
+    height: 65vh;
+  }
+
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-text {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}
+
 @media (max-width: 1024px) {
   .container {
     display: flex;
@@ -129,7 +155,7 @@ code {
 
   .panel{
     height: 40vh
-}
+  }
 
   .about-text {
     max-width: 85vw;
@@ -137,7 +163,6 @@ code {
     padding: 10px;
     font-size: 0.8rem;
     line-height: 1.4;
-    text-align: center;
   }
 }
 </style>
