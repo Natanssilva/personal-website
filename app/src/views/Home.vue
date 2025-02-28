@@ -29,7 +29,7 @@
       <a href="#">
         <Button
           label="Baixar CV (Português)"
-          icon="pi pi-file-pdf"
+          icon="pi pi-download"
           size="large"
           raised 
           @click="openDlg = true"
@@ -40,7 +40,7 @@
       <a href="#">
         <Button
           label="Download CV (English)"
-          icon="pi pi-file-pdf"
+          icon="pi pi-download"
           size="large"
           raised 
           @click="openDlg = true"
