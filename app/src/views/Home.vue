@@ -11,27 +11,51 @@
       Transformando ideias em código, e código em inovação.
     </p>
 
-    <div class="bttn-curriculo">
-      <a href="#" download>
-        <Button
-          :label=LabelButton
-          icon="pi pi-download"
-          size="large"
-          class="p-button-outlined"
-          rounded
-        />
-      </a>
-    </div>
-
     <div class="icons-home">
       <SocialMedias />
     </div>
+    <div class="bttn-curriculo">
+        <Button
+          :label=LabelButton
+          icon="pi pi-file-pdf"
+          size="large"
+          raised 
+          @click="openDlg = true"
+        />
+    </div>
+
+    <Dialog v-model:visible="openDlg"  modal header="Selecione o formato:" :style="{ width: '20vw' }" :breakpoints="{ '1199px': '5vw', '525px': '70vw' }">
+      <div class="cv-content">
+      <a href="#">
+        <Button
+          label="Baixar CV (Português)"
+          icon="pi pi-file-pdf"
+          size="large"
+          raised 
+          @click="openDlg = true"
+          class="w-full"
+        />
+      </a>
+
+      <a href="#">
+        <Button
+          label="Download CV (English)"
+          icon="pi pi-file-pdf"
+          size="large"
+          raised 
+          @click="openDlg = true"
+          class="w-full"
+        />
+      </a>
+    </div>
+</Dialog>
+    
   </div>
 </template>
 
 <script setup>
 import SocialMedias from '@/components/SocialMedias.vue'
-import { Button } from 'primevue'
+import { Button , Dialog } from 'primevue'
 import { ref, onMounted, watch, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -94,9 +118,19 @@ watch(() => locale.value, (newLocale) => {
   charIndex = 0 // Resetar o índice do caractere
   setTimeout(type, 1000) // Reiniciar a digitação com um pequeno atraso
 })
+
+const openDlg = ref(false);
+
 </script>
 
 <style scoped>
+
+.cv-content{
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
 .main-title {
   font-size: 2.8rem;
   margin-bottom: 10px;

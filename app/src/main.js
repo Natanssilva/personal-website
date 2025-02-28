@@ -77,7 +77,7 @@ const i18n = createI18n({
           projects: 'Projects',
           contact: 'Contact',
         },
-        cv: 'Resume',
+        cv: 'View CV',
         views: {
           about: {
             title: 'About me',
@@ -105,7 +105,7 @@ const i18n = createI18n({
           projects: 'Projetos',
           contact: 'Contato',
         },
-        cv: 'Currículo',
+        cv: 'Ver currículo',
         views: {
           about: {
             title: 'Sobre mim',
