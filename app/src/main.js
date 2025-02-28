@@ -70,6 +70,7 @@ const i18n = createI18n({
     en: {
       message: {
         hello: "Hello, I'm ",
+        brainstorm: 'Turning ideas into code, and code into innovation.',
         menu: {
           home: 'Home',
           about: 'About Me',
@@ -98,6 +99,7 @@ const i18n = createI18n({
     pt: {
       message: {
         hello: 'Olá, eu sou',
+        brainstorm: 'Transformando ideias em código, e código em inovação.',
         menu: {
           home: 'Home',
           about: 'Sobre',

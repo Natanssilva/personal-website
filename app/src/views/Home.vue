@@ -8,7 +8,7 @@
       <span class="cursor" :class="cursorClass">&nbsp;</span>
     </p>
     <p class="second-text text-gray-500">
-      Transformando ideias em código, e código em inovação.
+      {{ t('message.brainstorm') }}
     </p>
 
     <div class="icons-home">

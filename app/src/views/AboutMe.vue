@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col w-full justify-center items-center min-h-screen">
-        <h1>{{ `<!--  ${t('message.views.about.title')} -- >` }}</h1>
+        <h1>{{ t('message.views.about.title') }}</h1>
     <div class="container">
       <div class="profile-section">
         <img :src="perfilPic" alt="Foto de perfil" class="profile-pic" />
