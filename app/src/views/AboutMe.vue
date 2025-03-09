@@ -79,7 +79,7 @@ h1 {
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  border: 3px solid #ccc;
+  border: 3px solid #826db3;
   object-fit: cover;
 }
 

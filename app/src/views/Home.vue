@@ -15,7 +15,7 @@
       <SocialMedias />
     </div>
     <div class="bttn-curriculo">
-        <Button
+        <Button style="color: #ffff;"
           :label=LabelButton
           icon="pi pi-file-pdf"
           size="large"
