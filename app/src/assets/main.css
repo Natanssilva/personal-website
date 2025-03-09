@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .my-app-dark, 
-.my-app-dark footer, 
-.my-app-dark div {
+.my-app-dark footer,
+.my-app-dark .p-tabs div{
     background-color: #1E1E1E;
 }
 

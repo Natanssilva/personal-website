@@ -76,9 +76,16 @@ footer {
   color: inherit;
 }
 
-.custom-tab-link:hover {
-  /* color: #007bff; */
+
+.p-tab{
+  color: #7447E1 ;
 }
+
+.custom-tab-link:hover{
+  color: #a788ef ;
+
+}
+
 
 .custom-tab-link .pi {
   vertical-align: middle;
