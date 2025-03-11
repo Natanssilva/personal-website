@@ -100,6 +100,35 @@ const i18n = createI18n({
                     In my day-to-day work,  I work on developing scalable applications, following good coding practices, applying tests and always seeking to improve my expertise to deliver high-quality products.`,
             },
           },
+          projects:{
+            text : 'Explore my <strong>projects</strong> and <strong>study repositories</strong>, where I share my experiences and creations in development.',
+            arrowText: 'Swipe to the side',
+            pokedex: {
+              title: 'Pokedex',
+              text: 'Application that simulates a Pokedex, using the PokeApi.'
+            },
+            threads: {
+              title: 'Threads',
+              text: 'Application that simulates the use of processor threads using Node.js.'
+            },
+            newspaper: {
+              title: 'Newspaper',
+              text: 'Web application that allows users to read news related to Apple.'
+            },
+            emporiumCoffee: {
+              title: 'EmporiumCoffee',
+              text: 'Landing Page simulating a coffee sales website.'
+            },
+            versionamento: {
+              title: 'Code versioning',
+              text: 'Repository with basic GIT commands and study topics.'
+            },
+            countdown: {
+              title: 'Countdown',
+              text: 'Web application simulating a countdown to January 1st, 2040.'
+            }
+            
+          }
         },
       },
     },
@@ -129,6 +158,34 @@ const i18n = createI18n({
                     No meu dia a dia, trabalho no desenvolvimento de aplicações escaláveis, seguindo boas práticas de código, aplicando testes e sempre buscando aprimorar minha expertise para entregar produtos de alta qualidade.`,
             },
           },
+          projects:{
+            text : 'Explore meus <strong>projetos</strong> e <strong>repositórios de estudos</strong>, onde compartilho minhas experiências e criações no desenvolvimento.',
+            arrowText: 'Deslize para o lado',
+            pokedex:{
+              title: 'Pokedex',
+              text: 'Aplicação que simula uma pokedex, que utiliza a API PokeApi.'
+            },
+            threads:{
+              title: 'Threads',
+              text: 'Aplicação que simula a utilização de threads do processador utilizando Node.JS.'
+            },
+            newspaper:{
+              title: 'Newspaper',
+              text: 'Aplicação web que oferece aos usuários a capacidade de ler notícias relacionadas à Apple.'
+            },
+            emporiumCoffee:{
+              title: 'EmporiumCoffee',
+              text: 'Landing Page para simular um site de vendas de café.'
+            },
+            versionamento:{
+              title: 'Versionamento de código',
+              text: 'Repositório com comandos básicos de GIT e tópicos de estudo.'
+            },
+            countdown:{
+              title: 'Countdown',
+              text: 'Aplicação web que simula um countdown até 1 de janeiro de 2040.'
+            }
+          }
         },
       },
     },

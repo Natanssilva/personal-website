@@ -1,204 +1,50 @@
 <template>
   <main class="principal-content flex flex-col w-full justify-center items-center min-h-screen">
     <div class="text-center flex flex-col items-center">
-      <h1 class="text-4xl font-bold">Projetos</h1>
-      <span>
-        Explore meus projetos e artigos, onde compartilho minhas experiências e criações no
-        desenvolvimento.
+      <span  v-html="$t('message.views.projects.text')">
       </span>
+      <div class="flex flex-col items-center training-content">
+        <span class="text-training underline">{{ t('message.views.projects.arrowText') }}</span>
+        <span class="bounce-icon">
+          <i class="pi pi-arrow-down" />
+        </span>
+      </div>
     </div>
+
     <div class="swiper">
       <div class="swiper-wrapper">
-        <!-- CARD 1 -->
-        <div class="swiper-slide">
+        <!-- Gerar cards dinamicamente com v-for -->
+        <div class="swiper-slide" v-for="(project, index) in projects" :key="index">
           <div class="flex flex-col h-full">
-            <img src="../assets/img/pokedex-img.png" alt="" class="img-card rounded-t-md" />
+            <img :src="project.image" alt="" class="img-card rounded-t-md" />
 
             <div class="flex flex-col flex-1 gap-2 min-h-[15rem]">
-              <h3 class="title-card">Pokedex</h3>
-              <div class="flex gap-6 text-sm text-light-secondary dark:text-dark-primary font-bold">
-                <div>
-                  <a
-                    href="https://github.com/Natanssilva/Pokedex"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link-card flex items-center gap-3 hover:underline"
-                  >
-                    <font-awesome-icon :icon="['fab', 'github']" /> Repositório
-                  </a>
+              <h3 class="title-card">{{ t(project.title) }}</h3>
+              <div>
+                <a
+                  :href="project.repoLink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-card flex items-center gap-3 hover:underline"
+                >
+                  <font-awesome-icon :icon="['fab', 'github']" /> Repositório
+                </a>
 
-                  <p class="text-card">
-                    Aplicação que simula uma pokedex, que utiliza a API PokeApi.
-                  </p>
-                </div>
+                <p class="text-card">{{ t(project.description) }}</p>
               </div>
               <div class="icons-card">
-                <font-awesome-icon :icon="['fab', 'html5']" class="icons-tech" />
-                <font-awesome-icon :icon="['fab', 'js-square']" class="icons-tech" />
-                <font-awesome-icon :icon="['fab', 'css3-alt']" class="icons-tech" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="swiper-slide">
-          <div class="flex flex-col h-full">
-            <img src="../assets/img/threads.jpeg" alt="" class="img-card rounded-t-md" />
-
-            <div class="flex flex-col flex-1 gap-2 min-h-[15rem]">
-              <h3 class="title-card">Threads</h3>
-              <div class="flex gap-6 text-sm text-light-secondary dark:text-dark-primary font-bold">
-                <div>
-                  <a
-                    href="https://github.com/Natanssilva/Sistemas_operacionais/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link-card flex items-center gap-3 hover:underline"
-                  >
-                    <font-awesome-icon :icon="['fab', 'github']" /> Repositório
-                  </a>
-
-                  <p class="text-card">
-                    Aplicação que simula a utilização de threads do processador utilizando Node.JS.
-                  </p>
-                </div>
-              </div>
-              <div class="icons-card">
-                <font-awesome-icon :icon="['fab', 'js-square']" class="icons-tech" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="swiper-slide">
-          <div class="flex flex-col h-full">
-            <img src="../assets/img/apple-notices.jpg" alt="" class="img-card rounded-t-md" />
-
-            <div class="flex flex-col flex-1 gap-2 min-h-[15rem]">
-              <h3 class="title-card">Newspaper</h3>
-              <div class="flex gap-6 text-sm text-light-secondary dark:text-dark-primary font-bold">
-                <div>
-                  <a
-                    href="https://github.com/Natanssilva/newspaperProject"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link-card flex items-center gap-3 hover:underline"
-                  >
-                    <font-awesome-icon :icon="['fab', 'github']" /> Repositório
-                  </a>
-
-                  <p class="text-card">
-                    Aplicação web que oferece aos usuários a capacidade de ler notícias relacionadas
-                    à Apple de todo o mundo.
-                  </p>
-                </div>
-              </div>
-              <div class="icons-card">
-                <font-awesome-icon :icon="['fab', 'js-square']" class="icons-tech" />
-                <font-awesome-icon :icon="['fab', 'html5']" class="icons-tech" />
-                <font-awesome-icon :icon="['fab', 'css3-alt']" class="icons-tech" />
-                <font-awesome-icon :icon="['fab', 'php']" />
-                <font-awesome-icon :icon="['fas', 'database']" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="swiper-slide">
-          <div class="flex flex-col h-full">
-            <img src="../assets/img/coffee-pic.png" alt="" class="img-card rounded-t-md" />
-
-            <div class="flex flex-col flex-1 gap-2 min-h-[15rem]">
-              <h3 class="title-card">EmporiumCoffee</h3>
-              <div class="flex gap-6 text-sm text-light-secondary dark:text-dark-primary font-bold">
-                <div>
-                  <a
-                    href="https://github.com/Natanssilva/EmporiumCoffee"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link-card flex items-center gap-3 hover:underline"
-                  >
-                    <font-awesome-icon :icon="['fab', 'github']" /> Repositório
-                  </a>
-
-                  <p class="text-card">Landing Page para simular um site de vendas de café.</p>
-                </div>
-              </div>
-              <div class="icons-card">
-                <font-awesome-icon :icon="['fab', 'js-square']" class="icons-tech" />
-                <font-awesome-icon :icon="['fab', 'html5']" class="icons-tech" />
-                <font-awesome-icon :icon="['fab', 'css3-alt']" class="icons-tech" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="swiper-slide">
-          <div class="flex flex-col h-full">
-            <img src="../assets/img/git-github.png" alt="" class="img-card rounded-t-md" />
-
-            <div class="flex flex-col flex-1 gap-2 min-h-[15rem]">
-              <h3 class="title-card">Versionamento de Código</h3>
-              <div class="flex gap-6 text-sm text-light-secondary dark:text-dark-primary font-bold">
-                <div>
-                  <a
-                    href="https://github.com/Natanssilva/projetogit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link-card flex items-center gap-3 hover:underline"
-                  >
-                    <font-awesome-icon :icon="['fab', 'github']" /> Repositório
-                  </a>
-
-                  <p class="text-card">
-                    Repositório com comandos básicos de GIT e tópicos de estudo.
-                  </p>
-                </div>
-              </div>
-              <div class="icons-card">
-                <font-awesome-icon :icon="['fas', 'code-branch']" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="swiper-slide">
-          <div class="flex flex-col h-full">
-            <img src="../assets/img/foguete.jpg" alt="" class="img-card rounded-t-md" />
-
-            <div class="flex flex-col flex-1 gap-2 min-h-[15rem]">
-              <h3 class="title-card">Countdown</h3>
-              <div class="flex gap-6 text-sm text-light-secondary dark:text-dark-primary font-bold">
-                <div>
-                  <a
-                    href="https://github.com/Natanssilva/Countdown"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link-card flex items-center gap-3 hover:underline"
-                  >
-                    <font-awesome-icon :icon="['fab', 'github']" /> Repositório
-                  </a>
-
-                  <p class="text-card">
-                    Aplicação web que simula um countdown com data fixa até 1 de janeiro de 2040,
-                    responsivo e dinâmico.
-                  </p>
-                </div>
-              </div>
-              <div class="icons-card">
-                <font-awesome-icon :icon="['fab', 'js-square']" class="icons-tech" />
-                <font-awesome-icon :icon="['fab', 'html5']" class="icons-tech" />
-                <font-awesome-icon :icon="['fab', 'css3-alt']" class="icons-tech" />
+                <font-awesome-icon
+                  v-for="(tech, index) in project.technologies"
+                  :key="index"
+                  :icon="tech"
+                  class="icons-tech"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <!-- Paginação -->
       <div class="swiper-pagination"></div>
     </div>
@@ -206,19 +52,90 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import Swiper from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import { Pagination } from 'swiper/modules'
+import Pokedex from '@/assets/img/pokedex-img.png'
+import Threads from '@/assets/img/threads.jpeg'
+import AppleImg from '@/assets/img/apple-notices.jpg'
+import CoffePic from '@/assets/img/coffee-pic.png'
+import GitGithub from '@/assets/img/git-github.png'
+import Countdown from '@/assets/img/foguete.jpg'
+
+const { t } = useI18n();
+
+const projects = ref([
+  {
+    title: 'message.views.projects.pokedex.title',
+    description: 'message.views.projects.pokedex.text',
+    image: Pokedex,
+    repoLink: 'https://github.com/Natanssilva/Pokedex',
+    technologies: [
+      ['fab', 'html5'],
+      ['fab', 'js-square'],
+      ['fab', 'css3-alt'],
+    ],
+  },
+  {
+    title: 'message.views.projects.threads.title',
+    description: 'message.views.projects.threads.text',
+    image: Threads,
+    repoLink: 'https://github.com/Natanssilva/Sistemas_operacionais/',
+    technologies: [
+      ['fab', 'js-square'],
+    ],
+  },
+  {
+    title: 'message.views.projects.newspaper.title',
+    description: 'message.views.projects.newspaper.text',
+    image: AppleImg,
+    repoLink: 'https://github.com/Natanssilva/newspaperProject',
+    technologies: [
+      ['fab', 'js-square'],
+      ['fab', 'html5'],
+      ['fab', 'css3-alt'],
+      ['fab', 'php'],
+      ['fas', 'database'],
+    ],
+  },
+  {
+    title: 'message.views.projects.emporiumCoffee.title',
+    description: 'message.views.projects.emporiumCoffee.text',
+    image: CoffePic,
+    repoLink: 'https://github.com/Natanssilva/EmporiumCoffee',
+    technologies: [
+      ['fab', 'js-square'],
+      ['fab', 'html5'],
+      ['fab', 'css3-alt'],
+    ],
+  },
+  {
+    title: 'message.views.projects.versionamento.title',
+    description: 'message.views.projects.versionamento.text',
+    image: GitGithub,
+    repoLink: 'https://github.com/Natanssilva/projetogit',
+    technologies: [
+      ['fas', 'code-branch'],
+    ],
+  },
+  {
+    title: 'message.views.projects.countdown.title',
+    description: 'message.views.projects.countdown.text',
+    image: Countdown,
+    repoLink: 'https://github.com/Natanssilva/Countdown',
+    technologies: [
+      ['fab', 'js-square'],
+      ['fab', 'html5'],
+      ['fab', 'css3-alt'],
+    ],
+  }
+]);
 
 onMounted(() => {
   new Swiper('.swiper', {
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true,
-    },
     loop: true,
     grabCursor: true,
     spaceBetween: 20,
@@ -237,16 +154,50 @@ onMounted(() => {
       },
     },
   })
-})
+});
+
+
 </script>
 
 <style scoped>
+.bounce-icon {
+  height: 32px; /* Equivalente a h-8 */
+  width: 32px; /* Equivalente a w-8 */
+  background-color: var(--primary-color); /* Substitua pela cor desejada */
+  color: var(--primary-contrast-color); /* Substitua pela cor desejada */
+  border-radius: 50%; /* Equivalente a rounded-full */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 1s infinite;
+}
+
+/* Animação bounce (sem Tailwind) */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.training-content{
+  margin-top: 5px;
+  gap: 10px;
+}
+
+.text-training{
+  font-size: 0.7rem;
+}
+
 .principal-content {
   gap: 30px;
 }
 .swiper {
   width: 80%;
-  height: 450px;
+  height: 350px;
 }
 
 .swiper-slide {
@@ -260,8 +211,8 @@ onMounted(() => {
 }
 
 .img-card {
-  width: 95%;
-  height: 200px; /* Defina uma altura fixa ou use max-height */
+  width: 93%;
+  height: 128px; /* Defina uma altura fixa ou use max-height */
   object-fit: cover;
   object-position: center;
   border-radius: 10px;
@@ -286,12 +237,13 @@ onMounted(() => {
 }
 
 .icons-card {
+  position: fixed;
+  bottom: 0;
   display: flex;
   justify-content: left;
   margin-left: 15px;
-  align-items: center;
-  height: 50vh;
-  gap: 20px;
+  margin-bottom: 15px;
+  gap: 10px;
 }
 
 .icons-tech {
@@ -323,7 +275,7 @@ span {
 @media (max-width: 640px) {
   /* Estilos para telas menores ou iguais a 640px (equivalente ao primeiro breakpoint) */
   .swiper {
-    height: 400px;
+    height: 350px;
   }
 
   .icons-card {
@@ -331,7 +283,7 @@ span {
   }
 
   .principal-content {
-    gap: 7px;
+    gap: 10px;
   }
 
   span {
